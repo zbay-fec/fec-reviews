@@ -18,3 +18,5 @@ class ReviewsList extends React.Component {
 }
 
 export default ReviewsList;
+
+window.ReviewsList = ReviewsList;
