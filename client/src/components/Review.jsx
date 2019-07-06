@@ -1,8 +1,17 @@
 import React from 'react';
+import Username from './Username.jsx';
 
 const Review = props => (
     <div className="review">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis voluptatum hic mollitia dignissimos suscipit tempore aspernatur rem amet omnis, porro atque qui delectus pariatur est?</p>
+        {props.messages.map(message =>
+        <ul>
+            <li>
+                <Username />
+                <h3>***</h3>
+                <p>{message}</p>
+            </li>
+        </ul>
+        )}
     </div>
 )
 
