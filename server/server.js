@@ -7,10 +7,10 @@ const port = 3003;
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(cors());
+app.use(express.json());
 
 app.get('/reviews', (req, res) => {
-    let body = req.body.name;
-    db.getAllReviews(body, (err, data) => {
+    db((err, data) => {
        if (err) {
            console.log(err);
        } else {
@@ -18,10 +18,5 @@ app.get('/reviews', (req, res) => {
        }
     });
 });
-
-// test get
-// app.get('/', (req, res) => {
-//     res.send('You hit the server')
-// });
 
 app.listen(port, () => console.log('Listening on port: ', port));

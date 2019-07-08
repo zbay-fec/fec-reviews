@@ -8,7 +8,7 @@ const Review = props => (
             <li>
                 <Username />
                 <h3>***</h3>
-                <p>{message}</p>
+                <p>{message.review_text}</p>
             </li>
         </ul>
         )}
