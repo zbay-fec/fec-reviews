@@ -12,7 +12,7 @@ connection.connect(err => {
 });
 
 const getAllReviews = cb => {
-    connection.query(`SELECT review_text FROM reviews;`, (err, data) => {
+    connection.query(`SELECT username, review_score, review_text FROM reviews WHERE prod_id = "HEL254b";`, (err, data) => {
         if (err) {
             throw err;
         } else {

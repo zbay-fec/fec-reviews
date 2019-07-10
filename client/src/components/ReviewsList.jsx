@@ -1,6 +1,5 @@
 import React from 'react';
 import ReviewBox from './ReviewBox.jsx';
-import Review from './Review.jsx';
 import axios from 'axios';
 
 class ReviewsList extends React.Component {
@@ -8,35 +7,52 @@ class ReviewsList extends React.Component {
         super(props);
 
         this.state = {
-            messages: []
+            prod_id: 0,
+            messages: [],
+            ratings: [],
+            ratingAvg: 0
         };
-
     }
-
-    // window.dispatchEvent(new CustomEvent('productChanged', {
-    //     detail: {
-    //       id: this.state.input
-    //     }
-    //   }));
-
-    // window.addEventListener('productChanged', e => this.setState({productId: e.detail.id}));
-
-    // componentDidMount() {
-    //     axios.get('https://baconipsum.com/api/?type=meat-and-filler')
-    //         .then(res => this.setState({ messages: res.data }))
-    //         .catch(err => console.log('Ridiculous! ', err))
-    // }
-
+    
     componentDidMount() {
+        // window.addEventListener('productChanged', e => this.setState({prod_id: e.detail.id}));
         axios.get('http://localhost:3003/reviews')
         .then(res => this.setState({ messages: res.data }))
+        .then(res => { 
+                const messages = this.state.messages;
+                const ratings = this.state.ratings;
+
+                for (let el of messages) {
+                    for (let key in el) {
+                        if (key === 'review_score') {
+                            ratings.push(el[key]);
+                        }
+                    }
+                }
+
+                // aggregate ratings
+                if (ratings.length < 2) {
+                    this.setState({ ratingAvg: ratings[0] });
+                } else {
+                    let sumArr = ratings.reduce((acc, val) => { return (acc + val); })
+                    let average = sumArr / ratings.length;
+
+                    this.setState({ ratingAvg: average.toFixed(1) });
+                }
+            })
         .catch(err => console.log('Ridiculous! ', err))
     }
 
     render() {
         return(
-            <div className="reviews-list">
-                <ReviewBox messages={this.state.messages} />
+            <div>
+                <div className="rating">
+                    <h1>Rating</h1>
+                    <h1>{this.state.ratingAvg}</h1>
+                </div>
+                <div className="reviews-list">
+                    <ReviewBox messages={this.state.messages} />
+                </div>
             </div>
         )
     }

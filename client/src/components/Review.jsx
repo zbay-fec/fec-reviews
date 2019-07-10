@@ -6,8 +6,8 @@ const Review = props => (
         {props.messages.map(message =>
         <ul>
             <li>
-                <Username />
-                <h3>***</h3>
+                <h3>{message.username}</h3>
+                <h5>Rated: {message.review_score} / 5</h5>
                 <p>{message.review_text}</p>
             </li>
         </ul>
