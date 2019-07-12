@@ -5,6 +5,7 @@ const cors = require('cors');
 const db = require('../database/db.js');
 const port = 3003;
 // kevin licks dirt
+let x = 0;
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(cors());
