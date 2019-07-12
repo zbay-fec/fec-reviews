@@ -18,10 +18,11 @@ class ReviewsList extends React.Component {
         // window.addEventListener('productChanged', e => this.setState({prod_id: e.detail.id}));
         axios.get('http://localhost:3003/reviews')
         .then(res => this.setState({ messages: res.data }))
+        // function to aggregate all ratings for the current product
         .then(res => { 
                 const messages = this.state.messages;
                 const ratings = this.state.ratings;
-
+            // loop through the reviews in the messages array and push all ratings into the ratings array
                 for (let el of messages) {
                     for (let key in el) {
                         if (key === 'review_score') {
@@ -30,7 +31,7 @@ class ReviewsList extends React.Component {
                     }
                 }
 
-                // aggregate ratings
+                // find the mean of all ratings in the ratings array
                 if (ratings.length < 2) {
                     this.setState({ ratingAvg: ratings[0] });
                 } else {
