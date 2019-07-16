@@ -6,7 +6,7 @@ module.exports = {
     deploy: {
       production: {
         user: 'ubuntu',
-        host: 'http://ec2-52-14-126-73.us-east-2.compute.amazonaws.com/',
+        host: 'ec2-18-188-142-187.us-east-2.compute.amazonaws.com',
         key: '~/.ssh/tutorial.pem',
         ref: 'origin/master',
         repo: 'git@github.com:zbay-fec/fec-reviews.git',
