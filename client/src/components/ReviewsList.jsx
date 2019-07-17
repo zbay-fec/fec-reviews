@@ -45,6 +45,10 @@ class ReviewsList extends React.Component {
     }
 
     render() {
+        if (this.props.showCart === true) {
+            return <div></div>;
+        }
+        
         return(
             <div className="main-container">
                 <div className="ag-rating">
