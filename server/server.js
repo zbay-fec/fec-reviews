@@ -4,16 +4,16 @@ const path = require('path');
 const cors = require('cors');
 const db = require('../database/db.js');
 const port = 3003;
-// kevin licks dirt
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(cors());
 app.use(express.json());
 
-app.get('/reviews', (req, res) => {
-    db((err, data) => {
+app.post('/reviews', (req, res) => {
+    let body = req.body.prod_id;
+    db(body, (err, data) => {
        if (err) {
-           console.log(err);
+           res.end();
        } else {
            res.send(data);
        }

@@ -1,4 +1,3 @@
-
 -- CREATE DATABASE product_reviews;
 
 CREATE TABLE reviews (
