@@ -12,17 +12,18 @@ class ReviewsList extends React.Component {
             ratings: [],
             ratingAvg: 0
         };
+
+        this.onChange = this.onChange.bind(this);
     }
 
-    componentDidMount() {
-        window.addEventListener('productChanged', e => this.setState({prod_id: e.detail.id}));
+    onChange() {
         axios.post('http://ec2-18-224-212-185.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
-            .then(res => this.setState({ messages: res.data }))
-            // function to aggregate all ratings for the current product
-            .then(res => {
+        .then(res => this.setState({ messages: res.data }))
+        // function to aggregate all ratings for the current product
+        .then(res => {
                 const messages = this.state.messages;
                 const ratings = this.state.ratings;
-            // loop through the reviews in the messages array and push all ratings into the ratings array
+                // loop through the reviews in the messages array and push all ratings into the ratings array
                 for (let el of messages) {
                     for (let key in el) {
                         if (key === 'review_score') {
@@ -30,24 +31,35 @@ class ReviewsList extends React.Component {
                         }
                     }
                 }
-
+                
                 // find the mean of all ratings in the ratings array
                 if (ratings.length < 2) {
                     this.setState({ ratingAvg: ratings[0] });
                 } else {
                     let sumArr = ratings.reduce((acc, val) => { return (acc + val); })
                     let average = sumArr / ratings.length;
-
+                    
                     this.setState({ ratingAvg: average.toFixed(1) });
                 }
             })
-        .catch(err => console.log('Ridiculous! ', err))
-    }
-
-    render() {
-        if (this.props.showCart === true) {
-            return <div></div>;
+            .catch(err => console.log('Ridiculous! ', err))
         }
+        
+        componentDidMount() {
+            window.addEventListener('productChanged', e => this.setState({prod_id: e.detail.id}));
+            this.onChange()
+        }
+
+        componentDidUpdate(prevProps, prevState) {
+            if (this.state.prod_id !== prevState.prod_id) {
+                this.onChange();
+            }
+        }
+        
+        render() {
+            if (this.props.showCart === true) {
+                return <div></div>;
+            }
         
         return(
             <div className="main-container">
