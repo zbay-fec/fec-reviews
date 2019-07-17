@@ -1,7 +1,9 @@
+require('dotenv').config();
+
 module.exports = {
-    host: 'remotemysql.com',
-    user: 'WK0FNlQfO8',
-    password: 'CH2CTioXgC',
-    database: 'WK0FNlQfO8',
-    port: 3306
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASS,
+    database: DB_DATABASE,
+    port: DB_PORT
 }
