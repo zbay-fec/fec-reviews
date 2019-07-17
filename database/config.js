@@ -2,6 +2,6 @@ module.exports = {
     host: 'remotemysql.com',
     user: 'WK0FNlQfO8',
     password: 'CH2CTioXgC',
-    database: 'product_reviews',
+    database: 'WK0FNlQfO8',
     port: 3306
 }
