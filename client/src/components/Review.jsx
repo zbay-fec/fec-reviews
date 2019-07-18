@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactStars from 'react-stars';
 import Username from './Username.jsx';
 
 const Review = props => (
@@ -8,7 +9,16 @@ const Review = props => (
             <li className="list-item">
                 <div className="single-review">
                 <div className="star"></div>
-                    <h3>Rated: {message.review_score} / 5</h3>
+                    <h3>
+                        <ReactStars
+                            count={5}
+                            value={message.review_score}
+                            size={24}
+                            color={'#ffd700'}
+                            edit={false}
+                            half={false}
+                        />
+                    </h3>
                     <h5>by {message.username}</h5>
                 </div>
                 <div className="review-text">
