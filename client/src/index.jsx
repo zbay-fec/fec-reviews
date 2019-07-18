@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom';
 import ReviewsList from './components/ReviewsList.jsx';
 import '../dist/style.css';
 
-ReactDOM.render(<ReviewsList />, document.getElementById('root'));
+ReactDOM.render(<ReviewsList />, document.getElementById('reviews-component'));
