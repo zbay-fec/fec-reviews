@@ -18,7 +18,9 @@ const Review = props => (
                             half={false}
                         />
                     </div>
-                    <h5>by {message.username}</h5>
+                    <div>
+                        <h5>by {message.username}</h5>
+                    </div>
                 </div>
                 <div className="review-text">
                     <p>{message.review_text}</p>

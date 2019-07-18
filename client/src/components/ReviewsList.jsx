@@ -18,6 +18,7 @@ class ReviewsList extends React.Component {
 
     onChange() {
         axios.post('http://ec2-18-222-28-69.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
+        // axios.post('http://localhost:3003/reviews', { prod_id: this.state.prod_id })
         .then(res => this.setState({ messages: res.data }))
         // function to aggregate all ratings for the current product
         .then(res => {
