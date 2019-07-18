@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactStars from 'react-stars';
+import Likes from './Likes.jsx'
 import Username from './Username.jsx';
 
 const Review = props => (
@@ -24,6 +25,7 @@ const Review = props => (
                 </div>
                 <div className="review-text">
                     <p>{message.review_text}</p>
+                    {/* <Likes /> */}
                 </div>
             </li>
         </ul>

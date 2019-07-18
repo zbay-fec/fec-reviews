@@ -74,12 +74,12 @@ class ReviewsList extends React.Component {
                         <h1 className="rating-avg">{this.state.ratingAvg}</h1>
                         <ReactStars
                             count={5}
-                            value={this.state.ratingAvg}
+                            value={Number(this.state.ratingAvg)}
                             size={40}
                             color={'#ffd700'}
                             edit={false}
                             half={true}
-                        />
+                        />l
                     </div>
                 </div>
                 <div className="reviews-list">
