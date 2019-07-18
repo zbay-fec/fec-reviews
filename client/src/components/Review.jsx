@@ -25,7 +25,7 @@ const Review = props => (
                 </div>
                 <div className="review-text">
                     <p>{message.review_text}</p>
-                    {/* <Likes /> */}
+                    <Likes />
                 </div>
             </li>
         </ul>

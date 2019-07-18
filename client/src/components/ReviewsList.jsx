@@ -79,7 +79,7 @@ class ReviewsList extends React.Component {
                             color={'#ffd700'}
                             edit={false}
                             half={true}
-                        />l
+                        />
                     </div>
                 </div>
                 <div className="reviews-list">

@@ -20,6 +20,7 @@
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
     "react-stars": "^2.2.5"
   },
   "devDependencies": {

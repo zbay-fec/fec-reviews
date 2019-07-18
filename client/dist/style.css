@@ -100,3 +100,29 @@ a {
 .review-text {
     width: 1200px;
 }
+
+/* likes and dislikes */
+.likes-dislikes {
+    display: flex;
+}
+
+.like-btn,
+.dislike-btn {
+    margin-right: 1.5rem;
+}
+
+.like-btn, 
+.dislike-btn,
+.report-btn {
+    padding: 5px 18px;
+    background: #fff;
+    border: 1px solid #c5c5c5;
+    border-radius: 5px;
+    font-size: 1.4rem;
+}
+
+.like-btn:hover, 
+.dislike-btn:hover,
+.report-btn:hover {
+    cursor: pointer;
+}
