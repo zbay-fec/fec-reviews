@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewBox from './ReviewBox.jsx';
 import axios from 'axios';
+import ReactStars from 'react-stars';
 
 class ReviewsList extends React.Component {
     constructor(props) {
@@ -65,13 +66,20 @@ class ReviewsList extends React.Component {
         return(
             <div className="main-container">
                 <div className="ag-rating">
-                    <div className="user-and-rating">
+                    <div className="ratings-and-reviews">
                         <h2>Ratings and Reviews</h2>
                         <button className="write-a-review">WRITE A REVIEW</button>
                     </div>
                     <div className="rating-pair">
-                        <h1>Rating</h1>
-                        <h1>{this.state.ratingAvg}</h1>
+                        <h1 className="rating-avg">{this.state.ratingAvg}</h1>
+                        <ReactStars
+                            count={5}
+                            value={this.state.ratingAvg}
+                            size={40}
+                            color={'#ffd700'}
+                            edit={false}
+                            half={true}
+                        />
                     </div>
                 </div>
                 <div className="reviews-list">
@@ -85,5 +93,3 @@ class ReviewsList extends React.Component {
 export default ReviewsList;
 
 window.ReviewsList = ReviewsList;
-
-{/* <i class="far fa-star"></i> */}

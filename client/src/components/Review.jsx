@@ -19,7 +19,7 @@ const Review = props => (
                         />
                     </div>
                     <div>
-                        <h5>by {message.username}</h5>
+                        <h5>by <a href="#">{message.username}</a></h5>
                     </div>
                 </div>
                 <div className="review-text">
