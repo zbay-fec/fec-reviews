@@ -2,6 +2,10 @@ module.exports = {
     entry: __dirname + '/client/src/index.jsx',
     module: {
       rules: [
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        },
         { 
           test: [/\.jsx$/],
           exclude: /node_modules/,
