@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#root {
+#reviews-component {
     display: flex;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
