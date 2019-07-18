@@ -8,8 +8,7 @@ const Review = props => (
         <ul>
             <li className="list-item">
                 <div className="single-review">
-                <div className="star"></div>
-                    <h3>
+                    <div className="stars">
                         <ReactStars
                             count={5}
                             value={message.review_score}
@@ -18,7 +17,7 @@ const Review = props => (
                             edit={false}
                             half={false}
                         />
-                    </h3>
+                    </div>
                     <h5>by {message.username}</h5>
                 </div>
                 <div className="review-text">
