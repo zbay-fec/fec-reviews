@@ -1,12 +1,10 @@
 #reviews-component {
     padding: 0;
     margin: 0;
-    background: #fff;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     font-family: Helvetica;
-    justify-self: center;
 }
 
 a {
@@ -20,6 +18,8 @@ a {
     width: 80%;
     border: 1px solid #e2e2e2;
     padding: 2rem;
+    background: #fff;
+    justify-self: center;
 }
 
 .ag-rating {
