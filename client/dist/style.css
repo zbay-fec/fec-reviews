@@ -132,8 +132,9 @@ a {
 .write-a-review {
     /* visibility: hidden; */
     position: absolute;
+    bottom: 0;
     left: 30%;
-    top: 0;
+    /* top: 0; */
     padding: 2rem;
     /* background: #bce8ff; */
     background: #fff;
