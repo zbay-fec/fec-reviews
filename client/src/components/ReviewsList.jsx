@@ -13,11 +13,18 @@ class ReviewsList extends React.Component {
             messages: [],
             ratings: [],
             ratingAvg: 0,
-            reviewBoxVisible: false
+            reviewBoxVisible: false,
+            usernameInput: '',
+            reviewInput: '',
+            usersRating: 1
         };
 
         this.onChange = this.onChange.bind(this);
         this.showReviewBox = this.showReviewBox.bind(this);
+        this.reviewUsername = this.reviewUsername.bind(this);
+        this.newReview = this.newReview.bind(this);
+        this.newRating = this.newRating.bind(this);
+        this.postReview = this.postReview.bind(this);
     }
 
     onChange() {
@@ -62,7 +69,27 @@ class ReviewsList extends React.Component {
         }
 
         showReviewBox() {
-            this.setState({ reviewBoxVisible: !this.state.reviewBoxVisible });;
+            this.setState({ reviewBoxVisible: !this.state.reviewBoxVisible });
+            this.setState({ usersRating: 1 }); // reset state usersRating when reviewbox closes
+        }
+
+        // new reviews functions
+        reviewUsername(e) {
+            this.setState({ usernameInput: e.target.value });
+        }
+
+        newReview(e) {
+            this.setState({ reviewInput: e.target.value });
+        }
+
+        newRating(e) {
+            this.setState({ usersRating: e });
+        }
+
+        postReview() {
+            console.log(this.state.usernameInput);
+            console.log(this.state.usersRating);
+            console.log(this.state.reviewInput);
         }
         
         render() {
@@ -100,17 +127,17 @@ class ReviewsList extends React.Component {
                     <div className={"write-a-review" }>
                     <div className="review-form-username-stars">
                         <div>
-                            <input className="review-input" type="text" placeholder="username" required />
+                            <input className="review-input" type="text" placeholder="username" onChange={this.reviewUsername} required />
                             <h4 className="review-rate-this-product-text">RATE THIS PRODUCT</h4>
                             <ReactStars 
                                 count={5}
-                                value={1}
+                                value={this.state.usersRating}
                                 size={35}
                                 color1={'#ececec'}
                                 color2={'#ffd700'}
                                 edit={true}
                                 half={false}
-                                // onChange={}
+                                onChange={this.newRating}
                             />
                         </div>
                         <button 
@@ -118,8 +145,8 @@ class ReviewsList extends React.Component {
                             onClick={this.showReviewBox}>CLOSE</button>
                     </div>
                     <div className="review-form-textarea-postBtn">
-                        <textarea className="write-review-textarea" placeholder="Tell us what you think" required ></textarea>
-                        <button className="post-review-btn">POST</button>
+                        <textarea className="write-review-textarea" placeholder="Tell us what you think" onChange={this.newReview} required ></textarea>
+                        <button className="post-review-btn" onClick={this.postReview}>POST</button>
                     </div>
                 </div>
                 ) 
