@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewBox from './ReviewBox.jsx';
 import axios from 'axios';
 import ReactStars from 'react-stars';
+import WriteAReview from './WriteAReview.jsx';
 
 class ReviewsList extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class ReviewsList extends React.Component {
     }
 
     onChange() {
-        axios.post('http://ec2-18-222-28-69.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
+        axios.post('http://ec2-52-14-196-245.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
         // axios.post('http://localhost:3003/reviews', { prod_id: this.state.prod_id })
         .then(res => this.setState({ messages: res.data }))
         // function to aggregate all ratings for the current product
@@ -80,11 +81,14 @@ class ReviewsList extends React.Component {
                             edit={false}
                             half={true}
                         />
+                        <p>{this.state.ratings.length} product ratings</p>
                     </div>
                 </div>
                 <div className="reviews-list">
                     <ReviewBox messages={this.state.messages} />
                 </div>
+                {/* write a review box */}
+                <WriteAReview />
             </div>
         )
     }
