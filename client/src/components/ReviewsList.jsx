@@ -88,7 +88,7 @@ class ReviewsList extends React.Component {
                     <ReviewBox messages={this.state.messages} />
                 </div>
                 {/* write a review box */}
-                <WriteAReview />
+                {/* <WriteAReview /> */}
             </div>
         )
     }
