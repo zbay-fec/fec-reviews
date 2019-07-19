@@ -3,8 +3,8 @@
     margin: 0;
     box-sizing: border-box;
     display: flex;
+    justify-content: center;
     font-family: Helvetica;
-    width: 100%;
 }
 
 a {
@@ -12,15 +12,12 @@ a {
 }
 
 .main-container {
-    margin: 0;
     position: relative;
     display: flex;
     flex-direction: column;
     width: 80%;
     border: 1px solid #e2e2e2;
     padding: 2rem;
-    background: #fff;
-    justify-content: center;
 }
 
 .ag-rating {
