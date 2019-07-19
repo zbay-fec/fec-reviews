@@ -153,6 +153,8 @@ a {
 }
 
 .review-form-username-stars {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 2rem;
 }
 
@@ -177,11 +179,32 @@ a {
     background: #fff;
     border: 1px solid blue;
     border-radius: 5px;
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
     width: 120px;
+    color: blue;
+}
+
+.post-review-btn:hover {
+    cursor: pointer;
+    background: blue;
+    color: #fff;
 }
 
 .review-rate-this-product-text {
     margin: 0;
 
+}
+
+.close-reviews {
+    padding: 5px 18px;
+    background: #fff;
+    border: 1px solid #c5c5c5;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+}
+
+.close-reviews:hover {
+    cursor: pointer;
+    border: 1px solid #898989;
 }

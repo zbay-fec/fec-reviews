@@ -21,8 +21,8 @@ class ReviewsList extends React.Component {
     }
 
     onChange() {
-        // axios.post('http://ec2-52-14-196-245.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
-        axios.post('http://localhost:3003/reviews', { prod_id: this.state.prod_id })
+        axios.post('http://ec2-52-14-196-245.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
+        // axios.post('http://localhost:3003/reviews', { prod_id: this.state.prod_id })
         .then(res => this.setState({ messages: res.data }))
         // function to aggregate all ratings for the current product
         .then(res => {
@@ -94,7 +94,38 @@ class ReviewsList extends React.Component {
                     <ReviewBox messages={this.state.messages} />
                 </div>
                 {/* write a review box */}
-                {this.state.reviewBoxVisible ? (<WriteAReview />) : null}
+                {/* {this.state.reviewBoxVisible ? (<WriteAReview  reviewBoxVisible={this.state.reviewBoxVisible} />) : null} */}
+
+                {this.state.reviewBoxVisible ? (
+                    <div className={"write-a-review" }>
+                    <div className="review-form-username-stars">
+                        <div>
+                            <input className="review-input" type="text" placeholder="username" required />
+                            <h4 className="review-rate-this-product-text">RATE THIS PRODUCT</h4>
+                            <ReactStars 
+                                count={5}
+                                value={1}
+                                size={35}
+                                color1={'#ececec'}
+                                color2={'#ffd700'}
+                                edit={true}
+                                half={false}
+                                // onChange={}
+                            />
+                        </div>
+                        <button 
+                            className="close-reviews" 
+                            onClick={this.showReviewBox}>CLOSE</button>
+                    </div>
+                    <div className="review-form-textarea-postBtn">
+                        <textarea className="write-review-textarea" placeholder="Tell us what you think" required ></textarea>
+                        <button className="post-review-btn">POST</button>
+                    </div>
+                </div>
+                ) 
+                
+                : null}
+
             </div>
         )
     }
