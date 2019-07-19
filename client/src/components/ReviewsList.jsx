@@ -12,15 +12,17 @@ class ReviewsList extends React.Component {
             prod_id: 'AVR693z',
             messages: [],
             ratings: [],
-            ratingAvg: 0
+            ratingAvg: 0,
+            reviewBoxVisible: false
         };
 
         this.onChange = this.onChange.bind(this);
+        this.showReviewBox = this.showReviewBox.bind(this);
     }
 
     onChange() {
-        axios.post('http://ec2-52-14-196-245.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
-        // axios.post('http://localhost:3003/reviews', { prod_id: this.state.prod_id })
+        // axios.post('http://ec2-52-14-196-245.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
+        axios.post('http://localhost:3003/reviews', { prod_id: this.state.prod_id })
         .then(res => this.setState({ messages: res.data }))
         // function to aggregate all ratings for the current product
         .then(res => {
@@ -58,6 +60,10 @@ class ReviewsList extends React.Component {
                 this.onChange();
             }
         }
+
+        showReviewBox() {
+            this.setState({ reviewBoxVisible: !this.state.reviewBoxVisible });;
+        }
         
         render() {
             if (this.props.showCart === true) {
@@ -69,7 +75,7 @@ class ReviewsList extends React.Component {
                 <div className="ag-rating">
                     <div className="ratings-and-reviews">
                         <h2>Ratings and Reviews</h2>
-                        <button className="write-a-review">WRITE A REVIEW</button>
+                        <button className="write-a-review-btn" onClick={this.showReviewBox}>WRITE A REVIEW</button>
                     </div>
                     <div className="rating-pair">
                         <h1 className="rating-avg">{this.state.ratingAvg}</h1>
@@ -88,7 +94,7 @@ class ReviewsList extends React.Component {
                     <ReviewBox messages={this.state.messages} />
                 </div>
                 {/* write a review box */}
-                {/* <WriteAReview /> */}
+                {this.state.reviewBoxVisible ? (<WriteAReview />) : null}
             </div>
         )
     }

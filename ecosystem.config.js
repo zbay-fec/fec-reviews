@@ -11,7 +11,7 @@ module.exports = {
         ref: 'origin/master',
         repo: 'git@github.com:zbay-fec/fec-reviews.git',
         path: '/home/ubuntu/fec-reviews',
-        'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
+        'post-deploy': 'npm install && npx webpack --mode production && pm2 startOrRestart ecosystem.config.js'
       }
     }
   }

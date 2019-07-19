@@ -12,6 +12,7 @@ a {
 }
 
 .main-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -29,7 +30,7 @@ a {
 }
 
 /* write a review button */
-.write-a-review {
+.write-a-review-btn {
     background: #fff;
     border: 1px solid blue;
     color: blue;
@@ -37,7 +38,7 @@ a {
     width: 10rem;
 }
 
-.write-a-review:hover {
+.write-a-review-btn:hover {
     cursor: pointer;
 }
 
@@ -125,4 +126,62 @@ a {
 .dislike-btn:hover,
 .report-btn:hover {
     cursor: pointer;
+}
+
+/* write a review */
+.write-a-review {
+    /* visibility: hidden; */
+    position: absolute;
+    left: 25%;
+    padding: 2rem;
+    /* background: #bce8ff; */
+    background: #fff;
+    height: 420px;
+    width: 800px;
+    border-radius: 5px;
+    /* border: 1px solid #c5c5c5; */
+    border: 1px solid blue;
+}
+
+.review-input {
+    padding: 0 .5rem 0 .5rem;
+    width: 250px;
+    height: 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 1px solid blue;
+}
+
+.review-form-username-stars {
+    margin-bottom: 2rem;
+}
+
+.review-form-textarea-postBtn {
+    display: flex;
+    flex-direction: column;
+}
+
+.write-review-textarea {
+    padding: .5rem;
+    height: 220px;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    border: 1px solid blue;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+}
+
+.post-review-btn {
+    padding: 5px 18px;
+    background: #fff;
+    border: 1px solid blue;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    width: 120px;
+}
+
+.review-rate-this-product-text {
+    margin: 0;
+
 }
