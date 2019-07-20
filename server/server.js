@@ -22,7 +22,7 @@ app.post('/reviews', (req, res) => {
 });
 
 app.post('/newReviews', (req, res) => {
-    let body = req.body.username;
+    let body = req.body.newReview;
     console.log(body);
     db.addAReview(body, (err, data) => {
         if (err) {

@@ -21,8 +21,8 @@ const getAllReviews = (id, cb) => {
     });
 }
 
-const addAReview = (username, cb) => {
-    connection.query(`INSERT INTO reviews (prod_id, username, review_score, review_text) VALUES ("${obj.prod_id}", "${obj.username}", ${obj.review_score}, "${obj.review_text}";)`, (err, data) => {
+const addAReview = (obj, cb) => {
+    connection.query(`INSERT INTO reviews (prod_id, username, review_score, review_text) VALUES ("${obj.prod_id}", "${obj.username}", ${obj.review_score}, "${obj.review_text}");`, (err, data) => {
         if (err) {
             console.log('Error, ', err);
         } else {
