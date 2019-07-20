@@ -25,6 +25,7 @@ class ReviewsList extends React.Component {
         this.newReview = this.newReview.bind(this);
         this.newRating = this.newRating.bind(this);
         this.postReview = this.postReview.bind(this);
+        this.postAndHideReview = this.postAndHideReview.bind(this);
     }
 
     onChange() {
@@ -100,6 +101,11 @@ class ReviewsList extends React.Component {
                 .then( res => this.onChange())
                 .catch( err => console.log('Error, ', err))
         }
+
+        postAndHideReview() {
+            this.postReview();
+            this.showReviewBox();
+        }
         
         render() {
             if (this.props.showCart === true) {
@@ -154,7 +160,7 @@ class ReviewsList extends React.Component {
                     </div>
                     <div className="review-form-textarea-postBtn">
                         <textarea className="write-review-textarea" placeholder="Tell us what you think" onChange={this.newReview} required ></textarea>
-                        <button className="post-review-btn" onClick={this.postReview}>POST</button>
+                        <button className="post-review-btn" onClick={this.postAndHideReview}>POST</button>
                     </div>
                 </div>
                 ) 
