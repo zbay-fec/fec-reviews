@@ -23,7 +23,7 @@ app.post('/reviews', (req, res) => {
 
 app.post('/newReviews', (req, res) => {
     let body = req.body.newReview;
-    console.log(body);
+    // console.log(body);
     db.addAReview(body, (err, data) => {
         if (err) {
             res.end();
