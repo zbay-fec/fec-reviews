@@ -130,12 +130,10 @@ a {
 
 /* write a review */
 .write-a-review {
-    /* visibility: hidden; */
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
+    top: 20%;
+    left: 30%;
     padding: 2rem;
-    /* background: #bce8ff; */
     background: #fff;
     height: 420px;
     width: 800px;
