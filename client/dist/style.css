@@ -131,8 +131,8 @@ a {
 /* write a review */
 .write-a-review {
     position: fixed;
-    top: 20%;
-    left: 30%;
+    top: 50px;
+    left: 500px;
     padding: 2rem;
     background: #fff;
     height: 420px;
