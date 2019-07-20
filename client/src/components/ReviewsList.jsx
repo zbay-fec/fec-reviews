@@ -37,10 +37,10 @@ class ReviewsList extends React.Component {
                 this.state.ratings = [];
                 const ratings = this.state.ratings;
                 // loop through the reviews in the messages array and push all ratings into the ratings array
-                for (let el of messages) {
-                    for (let key in el) {
+                for (let el = messages.length - 1; el >=0; el--) {
+                    for (let key in messages[el]) {
                         if (key === 'review_score') {
-                            ratings.push(el[key]);
+                            ratings.push(messages[el][key]);
                         }
                     }
                 }
@@ -130,7 +130,6 @@ class ReviewsList extends React.Component {
                     <ReviewBox messages={this.state.messages} />
                 </div>
                 {/* write a review box */}
-                {/* {this.state.reviewBoxVisible ? (<WriteAReview  reviewBoxVisible={this.state.reviewBoxVisible} />) : null} */}
 
                 {this.state.reviewBoxVisible ? (
                     <div className={"write-a-review" }>
