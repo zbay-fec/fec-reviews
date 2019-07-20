@@ -95,9 +95,9 @@ class ReviewsList extends React.Component {
                 review_text: this.state.reviewInput
             }
             console.log(newReview);
-            // axios.post('http://localhost:3003/newReviews', { username: this.state.usernameInput })
-            //     .then( res => console.log(res))
-            //     .catch( err => console.log('Error, ', err))
+            axios.post('http://localhost:3003/newReviews', { username: this.state.usernameInput })
+                .then( res => console.log('success'))
+                .catch( err => console.log('Error, ', err))
         }
         
         render() {
