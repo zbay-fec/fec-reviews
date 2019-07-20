@@ -12,12 +12,24 @@ app.use(express.json());
 
 app.post('/reviews', (req, res) => {
     let body = req.body.prod_id;
-    db(body, (err, data) => {
+    db.getAllReviews(body, (err, data) => {
        if (err) {
            res.end();
        } else {
            res.send(data);
        }
+    });
+});
+
+app.post('/newReviews', (req, res) => {
+    let body = req.body.username;
+    console.log(body);
+    db.addAReview(body, (err, data) => {
+        if (err) {
+            res.end();
+        } else {
+            res.send(data);
+        }
     });
 });
 

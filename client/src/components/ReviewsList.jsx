@@ -34,6 +34,7 @@ class ReviewsList extends React.Component {
         // function to aggregate all ratings for the current product
         .then(res => {
                 const messages = this.state.messages;
+                this.state.ratings = [];
                 const ratings = this.state.ratings;
                 // loop through the reviews in the messages array and push all ratings into the ratings array
                 for (let el of messages) {
@@ -87,9 +88,16 @@ class ReviewsList extends React.Component {
         }
 
         postReview() {
-            console.log(this.state.usernameInput);
-            console.log(this.state.usersRating);
-            console.log(this.state.reviewInput);
+            let newReview = {
+                prod_id: this.state.prod_id,
+                username: this.state.usernameInput,
+                review_score: this.state.usersRating,
+                review_text: this.state.reviewInput
+            }
+            console.log(newReview);
+            // axios.post('http://localhost:3003/newReviews', { username: this.state.usernameInput })
+            //     .then( res => console.log(res))
+            //     .catch( err => console.log('Error, ', err))
         }
         
         render() {

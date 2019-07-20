@@ -21,4 +21,14 @@ const getAllReviews = (id, cb) => {
     });
 }
 
-module.exports = getAllReviews;
+const addAReview = (username, cb) => {
+    connection.query(`INSERT INTO reviews (prod_id, username, review_score, review_text) VALUES ("${obj.prod_id}", "${obj.username}", ${obj.review_score}, "${obj.review_text}";)`, (err, data) => {
+        if (err) {
+            console.log('Error, ', err);
+        } else {
+            cb(null, data);
+        }
+    })
+}
+
+module.exports = {getAllReviews, addAReview};
