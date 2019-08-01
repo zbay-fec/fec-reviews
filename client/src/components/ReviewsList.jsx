@@ -9,7 +9,7 @@ class ReviewsList extends React.Component {
         super(props);
 
         this.state = {
-            prod_id: 'AVR693z',
+            prod_id: '8000000',
             messages: [],
             ratings: [],
             ratingAvg: 0,
@@ -29,12 +29,21 @@ class ReviewsList extends React.Component {
     }
 
     onChange() {
-        axios.post('http://ec2-52-14-196-245.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
-        // axios.post('http://localhost:3003/reviews', { prod_id: this.state.prod_id })
-        .then(res => this.setState({ messages: res.data }))
+        //axios.post('http://ec2-52-14-196-245.us-east-2.compute.amazonaws.com:3003/reviews', { prod_id: this.state.prod_id })
+        axios.get('http://localhost:3003/reviews', { prod_id: this.state.prod_id })
+        .then(res => this.setState({ messages: res.data.rows }))
         // function to aggregate all ratings for the current product
         .then(res => {
-                const messages = this.state.messages;
+                let newMessages = [];
+                for(let i = 0; i < this.state.messages.length; i++){
+                  newMessages.push({
+                    review_score : this.state.messages[i].rating,
+                    review_text : this.state.messages[i].paragraph,
+                    username : this.state.messages[i].name
+                  })
+                }
+                this.setState({messages : newMessages})
+                const messages = newMessages;
                 this.state.ratings = [];
                 const ratings = this.state.ratings;
                 // loop through the reviews in the messages array and push all ratings into the ratings array
