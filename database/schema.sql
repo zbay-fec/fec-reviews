@@ -1,6 +1,6 @@
--- DROP DATABASE IF EXISTS product_reviews;
--- CREATE DATABASE product_reviews;
--- USE product_reviews
+DROP DATABASE IF EXISTS product_reviews;
+CREATE DATABASE product_reviews;
+USE product_reviews
 
 CREATE TABLE reviews (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,9 +10,9 @@ CREATE TABLE reviews (
     review_text TEXT
 );
 
--- LOAD DATA LOCAL INFILE './reviews.csv'
--- INTO TABLE reviews
--- FIELDS TERMINATED BY ','
--- LINES TERMINATED BY '\n'
--- IGNORE 1 ROWS
--- (prod_id, username, review_score, review_text)
+LOAD DATA LOCAL INFILE './reviews.csv'
+INTO TABLE reviews
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(prod_id, username, review_score, review_text)
